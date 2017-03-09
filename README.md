@@ -82,7 +82,7 @@ When a function is *called*, the code from within the definition's curly braces 
 We already call functions all the time in our code, even if we didn't write them. Those functions are defined elsewhere, either in the specification of Javascript, or within the specific framework (like using the `$` function for jQuery). The new power we have to define our own functions means we can write our own chunks of code that we want to execute later.
 
 # Defining a function with a parameter
-When a function requires a parameter, it will use an input value to perform an action. In the function `greetPerson(name)` the function requires that a name value be given to it.
+When a function requires a parameter, it will use an input value to perform an action. In the function `greetPerson(name)` the function requires that a name value be given to it as an *argument*.
 
 ```javascript
     // function definition
@@ -91,7 +91,7 @@ When a function requires a parameter, it will use an input value to perform an a
     }
 ```
 
-Similar to calling a function without parameters, the function name is called as a statement.  Parameters are passed into the function within the parenthesis.
+Similar to calling a function without parameters, the function name is called as a statement. Arguments are passed into the function within the parenthesis.
 
 ```javascript
     // function call
@@ -299,7 +299,7 @@ Functions are able to receive and return boolean values.  Functions that return 
 ```javascript
 // outputs a statement based on boolean value
 function hasCheezburger(answer)){
-    if (answer === true) {
+    if (answer) {
         console.log("Can I haz ur Cheezburger?");
     } else {
         console.log("Y no Cheezburger?");
@@ -343,6 +343,20 @@ function completelyDisagree(option) {
 var iAmRight = true;
 var doYouAgree = completelyDisagree(iAmRight);
 console.log(doYouAgree); // false
+```
+
+## Parameters with default values
+
+ES6 introduced the ability for a function to start with default values for the required parameters. That means you can choose whether or not to pass in an argument and the function will still work. In the following example, `b` will default to a value of `1`:
+
+```javascript
+function multiply(a, b = 1) {
+  return a * b;
+}
+
+multiply(5, 2); // 10
+multiply(5, 1); // 5
+multiply(5);    // 5
 ```
 
 # Function Scope
